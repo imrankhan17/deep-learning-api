@@ -11,10 +11,12 @@
             ".idea",
             "env",
             "*.h5",
+            "*.txt",
             ".git",
             ".gitignore",
             "boto3*",
-            "botocore*"
+            "botocore*",
+            "__pycache__"
         ],
         "profile_name": "default",
         "project_name": "deep-learning",

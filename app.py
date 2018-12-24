@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
 
 
-def classify_image(url, top=3):
+def classify_image(url, top):
 
     bucket = boto3.resource('s3').Bucket(os.environ.get('S3_BUCKET'))
     bucket.download_file('xception_weights_tf_dim_ordering_tf_kernels.h5', '/tmp/weights.h5')
