@@ -1,0 +1,17 @@
+# Python
+__pycache__
+
+# PyCharm
+.idea
+
+# virtualenv
+env
+
+# Jupyter
+notebooks/
+*.ipynb
+.ipynb_checkpoints/
+
+# data
+*.h5
+*.png
