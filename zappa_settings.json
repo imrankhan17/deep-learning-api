@@ -1,0 +1,25 @@
+{
+    "api": {
+        "app_function": "app.app",
+        "aws_region": "eu-west-2",
+        "environment_variables": {
+            "S3_BUCKET": "dl-api-models"
+        },
+        "exclude": [
+            "notebooks",
+            "*.ipynb",
+            ".idea",
+            "env",
+            "*.h5",
+            ".git",
+            ".gitignore",
+            "boto3*",
+            "botocore*"
+        ],
+        "profile_name": "default",
+        "project_name": "deep-learning",
+        "runtime": "python3.6",
+        "s3_bucket": "zappa-bkhqkspou",
+        "slim_handler": true
+    }
+}

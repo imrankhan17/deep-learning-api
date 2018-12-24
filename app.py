@@ -33,6 +33,11 @@ def classify_image(url, top=3):
     return {i[1]: str(i[2]) for i in preds_top}
 
 
+@app.route('/')
+def index():
+    return 'Home'
+
+
 @app.route('/predict')
 def predict():
     url = request.args.get('url')
@@ -43,4 +48,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

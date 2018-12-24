@@ -15,4 +15,7 @@ notebooks/
 # data
 *.h5
 *.png
+*.gz
+*.zip
 *.json
+!zappa_settings.json
