@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from keras import backend
 from keras.applications.xception import Xception, preprocess_input, decode_predictions
 from keras.preprocessing import image
 from PIL import Image
@@ -29,6 +30,7 @@ def classify_image(url, top):
 
     preds = model.predict(x)
     preds_top = decode_predictions(preds, top=top)[0]
+    backend.clear_session()
 
     return {i[1]: str(i[2]) for i in preds_top}
 
@@ -48,4 +50,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=80)

@@ -19,3 +19,6 @@ notebooks/
 *.zip
 *.json
 !zappa_settings.json
+
+# Bash
+*.sh
