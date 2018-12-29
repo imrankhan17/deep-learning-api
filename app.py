@@ -4,9 +4,7 @@ from keras.applications.xception import Xception, preprocess_input, decode_predi
 from keras.preprocessing import image
 from PIL import Image
 
-import boto3
 import numpy as np
-import os
 import requests
 
 app = Flask(__name__)
@@ -15,10 +13,7 @@ app.config['JSON_SORT_KEYS'] = False
 
 def classify_image(url, top):
 
-    bucket = boto3.resource('s3').Bucket(os.environ.get('S3_BUCKET'))
-    bucket.download_file('xception_weights_tf_dim_ordering_tf_kernels.h5', '/tmp/weights.h5')
-
-    model = Xception(weights='/tmp/weights.h5')
+    model = Xception(weights='/home/xception_weights_tf_dim_ordering_tf_kernels.h5')
 
     img_raw = requests.get(url, stream=True).raw
     img = Image.open(img_raw)

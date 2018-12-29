@@ -1,0 +1,9 @@
+FROM python:3.6
+
+COPY app.py requirements.txt xception_weights_tf_dim_ordering_tf_kernels.h5 /home/
+
+RUN pip install --no-cache-dir -r /home/requirements.txt
+
+ENV FLASK_APP /home/app.py
+
+CMD ["flask", "run", "--host=0.0.0.0", "--port=80"]

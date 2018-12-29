@@ -1,0 +1,24 @@
+# Python
+__pycache__
+
+# PyCharm
+.idea
+
+# virtualenv
+env/
+
+# Jupyter
+notebooks/
+*.ipynb
+.ipynb_checkpoints/
+
+# Git
+.git
+.gitignore
+
+# Misc
+Dockerfile*
+*.json
+*.md
+.DS_Store
+*.sh
