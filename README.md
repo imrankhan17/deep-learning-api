@@ -10,19 +10,25 @@ git clone https://github.com/imrankhan17/deep-learning-api.git
 cd deep-learning-api
 ```
 
-Create a virtual environment:
+Download the _Xception_ model weights:
 ```bash
-python3 -m venv env
-source env/bin/activate
-pip install -r requirements.txt
+curl -LOk https://github.com/fchollet/deep-learning-models/releases/download/v0.4/xception_weights_tf_dim_ordering_tf_kernels.h5
 ```
-
-You will need to download the _Xception_ model weights from [here](https://github.com/fchollet/deep-learning-models/releases/download/v0.4/xception_weights_tf_dim_ordering_tf_kernels.h5) and store them in an S3 bucket.  The name of this bucket should be inserted into line 6 of `zappa_settings.json`.  You will also need to change the name of the S3 bucket in line 24 to something random.
 
 #### Deployment
 
-Deploy to AWS using [Zappa](https://github.com/Miserlou/Zappa):
+Build the Docker image:
 ```bash
-pip install zappa
-zappa deploy api
+docker build -t keras-rest-api .
+```
+
+Start a container:
+```bash
+docker run -it -d -p 80:80 keras-rest-api
+```
+
+#### Usage
+
+```bash
+curl http://{public IP of VM instance}/predict?n=10&url=https://images-na.ssl-images-amazon.com/images/I/71gdBQP%2BqGL._UY445_.jpg
 ```
