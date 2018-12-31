@@ -17,8 +17,7 @@ notebooks/
 *.png
 *.gz
 *.zip
-*.json
-!zappa_settings.json
 
 # Bash
 *.sh
+!setup.sh
