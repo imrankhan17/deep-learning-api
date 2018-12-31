@@ -17,6 +17,8 @@ notebooks/
 *.png
 *.gz
 *.zip
+*.txt
+!requirements.txt
 
 # Bash
 *.sh
