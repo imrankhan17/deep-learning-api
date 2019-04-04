@@ -17,7 +17,7 @@ def classify_image(url, top):
 
     img_raw = requests.get(url, stream=True).raw
     img = Image.open(img_raw)
-    img = img.resize(size=(224, 224))
+    img = img.resize(size=(299, 299))
 
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
